@@ -1,0 +1,31 @@
+﻿<html>
+<head>
+<title>Login</title>
+<script>
+    function login() {
+        var userBox = document.getElementById("admin_user");
+        var passBox = document.getElementById("admin_pass");
+
+        var adminuser = "admin"
+        var adminpass = "bluemango"
+        if (userBox.value == adminuser) {
+            if (passBox.value == adminpass) {
+                document.write("Welcome, Admin");
+                alert("HORRAY, Successfully logged in!");
+            } else {
+                alert("You failed.");
+            }
+        } else {
+            alert("You failed.");
+        }
+    }
+</script>
+</head>
+
+
+<body>
+<input name="admin_user" id="admin_user" placeholder="Username"></input>
+<input name="admin_pass" id="admin_pass" placeholder="Password" type="password"></input>
+<button onclick="login()">Submit</button>
+</body>
+</html>

@@ -1,0 +1,829 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<TITLE>Breinbreker</TITLE>
+<meta name="description" content="Denkpuzzel van wiskundige vergelijkingen met letters, op te lossen door de letters door een cijfer te substitueren."> 
+<meta name="language"    content="taal">
+<meta name="language"    content="english">
+<meta name="keywords"    content="breinbreker, brainteaser, brain-teaser, gelijke-letters-zijn-gelijke-cijfers, equal-letters-are-equal-figures, equal-letters-are-equal-numbers, breinbrekeroplosser, brain-teaser-generator, brain-teaser-solver, breinbrekergenerator, mathematical-puzzle, wiskundige-puzzel, algebra-puzzle, denkpuzzelgenerator, think-puzzle-generator">
+<meta name="content"     content="denkpuzzel, mathematical-puzzle, algebra-puzzel substitueer, letters, cijfers, substitute, numbers, denkpuzzelgenerator">
+<meta name="author"      content="Peter de Vlieger">
+<meta name="copyright"   content="Copyright 2018 Peter de Vlieger">
+<meta charset="utf-8" >
+
+<style> 
+#nl {
+width: 580px;    
+resize: none;
+background: white;
+}
+
+  #uk {
+    width: 578px;    
+    resize: none;
+    background: white;
+    color:black;
+  }  
+
+  div.txt {
+    width: 616px; 
+  } 
+
+  #bg {
+    background: #DDDDDD;
+  } 
+
+  #nl1 {
+    background: firebrick; 
+    background: linear-gradient(to left, slateblue,  firebrick, #F0B194);
+  } 
+  
+  
+</style>
+
+<script type="text/javascript" src="js/script.js"></script>
+</head>
+
+<body onload=introNL()>
+<table width:616px; id='bg' STYLE='border-style:none; border-color:#F0B194'> 
+<tr>
+<td>
+<table>
+<tr>
+<td WIDTH = "6 px">
+  <input id="button_mail" type="radio" name="email" onclick="email()" value="email" checked />	
+</td>
+
+<td WIDTH = "150 px">
+<text style="font-size: 10px; font-family: verdana; font-weight: normal; text-align:center; color:#555555" >
+Made by Lucideus
+</text>
+</td>
+
+<td WIDTH = "200px" STYLE="font-size:8px; font-family:verdana; font-weight:normal;" > 
+</td>
+
+<td> 
+<input id="button_nl" type="radio" name="country" onclick="NL()" value="NL" checked />
+</td>
+<td>
+<text style="font-size: 12px; font-family: verdana; font-weight: normal; text-align:center; color:#555555">    
+Nederlands
+</text>
+</td>
+<td>
+<input id="button_uk" type="radio" name="country" onclick="UK()" value="UK" />
+</td>
+<td>
+<text style="font-size: 12px; font-family: verdana; font-weight: normal; text-align:center; color:#555555">    
+English
+</text>
+</td>
+<td>
+<input id="button_print" type="radio" name="print" onclick="window.print()" value="print" checked />	
+</td>
+<td>
+<text style="font-size: 12px; font-family: verdana; font-weight: normal; text-align:center; color:#555555">
+Print 
+</text>
+</td>
+</tr>
+</table>
+
+<table >	
+<tr>
+<td>
+<div id="nl1" class="txt" style="display:block;  width: 616px;">
+<text style="color:white; font-size: 37px; font-family: verdana; font-weight: bold; text-align:center">
+&nbsp;&nbsp;&nbsp;BREINBREKER OPLOSSER
+</text>
+</div>
+<div id="uk1" class="txt" style="display:none; width: 616px; background-color:#E73A3A">
+<text style="background-color:#E73A3A; color:white; font-size: 37px; font-family: verdana; font-weight: bold; text-align:center">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BRAIN TEASER SOLVER
+</text>
+</div>
+</td>
+</tr>
+
+<tr>
+<td>
+
+<div id="nl2" class="txt" style="display:block;  width: 616px;">
+<text style="font-size: 18px; font-family: verdana; font-weight: bold; text-align:center; color:#555555">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GELIJKE LETTERS ZIJN GELIJKE CIJFERS
+</text>
+</div>
+
+<div id="uk2" class="txt" style="display:none;  width: 616px;">
+<text style="font-size: 18px; font-family: verdana; font-weight: bold; text-align:center; color:#555555">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EQUAL LETTERS ARE EQUAL FIGURES 
+</text>
+</div>
+
+</td>
+</tr>
+</table>
+
+<p>
+<form>
+<table>
+<tr> 
+<td>
+<select SIZE="1" id="t1" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t2" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t3" onchange="inputChange()" STYLE="background-color:#F0B194; font-size:21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t4"  onchange="inputChange()" STYLE="background-color:#F0B194; font-size:21px; font-family:verdana; border:none" >
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+<td> 
+</td>
+<td>
+<select SIZE="1" id="op0" STYLE="background-color:#F0B194; font-size: 21px; font-family: verdana; border:none">
+  <option value="+">&plus;</option>	
+  <option value="-">&minus;</option>
+  <option value="*">&times;</option>
+  <option value="/">&divide;</option>
+</select>
+</td>
+<td> 
+</td>
+<td>
+<select SIZE="1" id="t5" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t6" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t7" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t8" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+<td>
+<td WIDTH = "21 px" STYLE="font-size: 21px; font-family:verdana; border:none"> 
+=	
+</td>
+<td>
+<select SIZE="1" id="t9" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t10" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t11" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t12" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none" onchange="inputChange()">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+</tr>
+</table>
+
+<p>
+<table WIDTH = "615 px">
+<tr>
+<td WIDTH = "82 px"> 
+</td>
+<td WIDTH = "179 px">
+<select SIZE= "1" id="op1" STYLE="background-color:#F0B194; font-size: 21px; font-family: verdana; border:none; ">
+  <option value="+">&plus;</option>	
+  <option value="-">&minus;</option>
+  <option value="*">&times;</option>
+  <option value="/">&divide;</option>
+</select>
+</td>
+<td WIDTH = "196 px">
+<select SIZE="1" id="op2" STYLE="background-color:#F0B194; font-size: 21px; font-family: verdana; border:none;">
+  <option value="+">&plus;</option>	
+  <option value="-">&minus;</option>
+  <option value="*">&times;</option>
+  <option value="/">&divide;</option>
+</select>
+</td>
+<td>
+<select SIZE="1" id="op3" STYLE="background-color:#F0B194; font-size: 21px; font-family: verdana; border:none;">
+  <option value="+">&plus;</option>	
+  <option value="-">&minus;</option>
+  <option value="*">&times;</option>
+  <option value="/">&divide;</option>
+</select>
+</td>
+</tr>
+</table>
+
+<p>
+<table>
+<tr> 
+<td>
+<select SIZE="1" id="t13" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t14" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t15" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t16"  onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none" >
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+<td> 
+</td>
+<td>
+<select SIZE="1" id="op4" STYLE="background-color:#F0B194; font-size: 21px; font-family: verdana; border:none">
+  <option value="+">&plus;</option>	
+  <option value="-">&minus;</option>
+  <option value="*">&times;</option>
+  <option value="/">&divide;</option>
+</select>
+</td>
+<td> 
+</td>
+<td>
+<select SIZE="1" id="t17" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t18" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t19" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t20" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+<td>
+<td WIDTH = "21 px" STYLE="font-size: 21px; font-family:verdana; border:none"> 
+=
+</td>
+<td>
+<select SIZE="1" id="t21" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t22" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t23" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t24" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none" onchange="inputChange()">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td>
+<text style="font-size: 20px; font-family: verdana;  text-align:center;">
+________________________________________________<br>
+</text>
+</td>
+</tr>
+</table>
+
+<p>
+<table>
+<tr> 
+<td>
+<select SIZE="1" id="t25" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t26" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t27" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t28"  onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none" >
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+<td> 
+</td>
+<td>
+<select SIZE="1" id="op5" STYLE="background-color:#F0B194; font-size: 21px; font-family: verdana; border:none">
+  <option value="+">&plus;</option>	
+  <option value="-">&minus;</option>
+  <option value="*">&times;</option>
+  <option value="/">&divide;</option>
+</select>
+</td>
+<td> 
+</td>
+<td>
+<select SIZE="1" id="t29" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t30" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t31" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t32" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+<td>
+<td WIDTH = "21 px" STYLE="font-size: 21px; font-family:verdana; border:none"> 
+=	
+</td>
+<td>
+<select SIZE="1" id="t33" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t34" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t35" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+<select SIZE="1" id="t36" onchange="inputChange()" STYLE="background-color:#F0B194; font-size: 21px; font-family:verdana; border:none" onchange="inputChange()">
+  <option value=" "> </option>	
+  <option value="A">A</option>
+  <option value="B">B</option>
+  <option value="C">C</option>
+  <option value="D">D</option>
+  <option value="E">E</option>
+  <option value="F">F</option>
+  <option value="G">G</option>
+  <option value="H">H</option>
+  <option value="J">J</option>
+  <option value="K">K</option>
+</select>
+</td>
+</tr>
+</table>
+
+<input type="hidden" id="hidden_op"  value ="/, -, +, +, +, -">
+<input type="hidden" id="hidden_r"   value ="CEDK, ABB, K, KFG, KKA, GD, CJKA, CFHG, GDG">
+<input type="hidden" id="hidden_res" value ="0,1,2,3,4,5,6,7,8,9">
+<input type="hidden" id="hidden_attempt" value=0>
+</form>
+
+
+<p>
+<table border="0" STYLE="border-color:#E73A3A">
+<tr>
+  <td  WIDTH = "77 px"> 
+  </td>	
+	
+  <td>
+  <div id="nl3" style="display:block;">   
+    <input id="button_nl3" type="button" onclick="solve()"     value="LOS PUZZEL OP" STYLE="background-color:#F0B194; color:#222222; font-size:15px; font-family:verdana;">
+  </div>
+  <div id="uk3" style="display:none;">
+    <input id="button_uk3" type="button" onclick="solve()"     value="SOLVE PUZZLE " STYLE="background-color:#F0B194; color:#DDDDDD; font-size:15px; font-family:verdana;">
+  </div>
+  </td> 
+  
+  <td WIDTH = "6 px"> 
+  </td>
+  <td>
+  <div id="nl4" style="display:block;"> 
+    <input id="button_nl4" type="button" onclick="introNL()"   value="BEGIN OPNIEUW" STYLE="background-color:firebrick; color:#FFFFFF; font-size:15px; font-family:verdana;">
+  </div> 
+  <div id="uk4" style="display:none;">
+    <input id="button_uk4" type="button" onclick="introUK()"   value=" START OVER " STYLE="background-color:#F0B194; color:#DDDDDD; font-size:15px; font-family:verdana;">
+  </div>  
+  </td>
+  
+  <td WIDTH = "6 px"> 
+  </td>
+  <td>
+  <div id="nl5" style="display:block;">
+    <input id="button_nl5" type="button" onclick="getPuzzle()" value=" KRIJG PUZZEL" STYLE="background-color:slateblue; color:#FFFFFF; font-size:15px; font-family:verdana;">
+  </div>
+  <div id="uk5" style="display:none;">
+    <input id="button_uk5" type="button" onclick="getPuzzle()" value=" GET A PUZZLE" STYLE="background-color:#F0B194; color:#DDDDDD; font-size:15px; font-family:verdana;">
+  </div>
+  </td>
+  <td WIDTH = "6 px"> 
+  </td>
+</tr>
+</table>
+
+
+<p>
+<table>
+<tr>
+<td>
+<div id="nl_intro" class="txt" style="display:none">
+<textarea id='nl' name='text' rows='4' cols='69' STYLE="border-style:double; border-width:5px; border-color:#F0B194; font-size:16px; color:#222222; font-family:verdana; font-weight:bold; padding-left:20px; padding-top:20px; overflow:hidden " >
+	     Stel de rekenkundige operatoren en letters in.
+       Gebruik daartoe de pijltjes of de knop [KRIJG PUZZEL].
+                Klik daarna op de knop[LOS PUZZEL OP].
+</textarea>
+</div>
+
+<div id="uk_intro" class="txt" style="display:none">
+<textarea id='uk' name='text' rows='4' cols='69' STYLE="border-style:double; border-width:5px; border-color:#F0B194; font-size:16px; font-family:verdana; font-weight:bold; padding-left:20px; padding-top:20px; overflow:hidden " >
+             Set up the arithmetic operators and letters.
+             Use the arrows or the [GET PUZZLE] button.
+             Then click the [SOLVE PUZZLE] button.
+</textarea>
+</div>
+
+<div id="nl_improve" class="txt" style="display:none">
+<textarea id='nl' name='text' rows='3' cols='69' STYLE="border-style:double; border-width:5px; border-color:#F0B194; background-color:#EEEEEE; font-size:16px; color:#222222; font-family:verdana; font-weight:bold; padding-left:20px;   padding-top:20px; overflow:hidden " >
+                        Spaties gevonden tussen de letters.
+                                Verbeter de rode vakjes.
+</textarea>
+</div>
+
+<div id="uk_improve" class="txt" style="display:none">
+<textarea id='uk' name='text' rows='2' cols='69' STYLE="border-style:double; border-width:5px; border-color:#F0B194; background-color:#EEEEEE; font-size:16px; color:#222222; font-family:verdana; font-weight:bold; padding-left:20px; padding-top:20px; overflow:hidden " >
+     Space found between the letters.  Improve the red boxes.
+</textarea>
+</div>
+
+<div id="nl_wait" class="txt" style="display:none">
+<textarea id='nl' name='text' rows='2' cols='69' STYLE="border-style:double; border-width:5px; border-color:#F0B194; background-color:#EEEEEE; font-size:16px; color:#222222; font-family:verdana; font-weight:bold; padding-left:20px; padding-top:20px; overflow:hidden " >
+           Bezig. Gelieve maximaal 45 seconden te wachten.
+</textarea>
+</div>
+
+<div id="uk_wait" class="txt" style="display:none">
+<textarea id='uk' name='text' rows='2' cols='69' STYLE="border-style:double; border-width:5px; border-color:#F0B194; background-color:#EEEEEE; font-size:16px; color:#222222; font-family:verdana; font-weight:bold; padding-left:20px; padding-top:20px; overflow:hidden " >
+              Busy. Please wait for maximum 45 seconds.
+</textarea>
+</div>
+
+<div id="nl_result" class="txt" rows='2' cols='69' style="dislpay:none"></div>
+<div id="uk_result" class="txt" rows='2' cols='69' style="display:none"></div>
+</td>
+</tr>
+</table>
+
+
+</td>
+</tr>
+</table> <!-- fixed widh 720px -->
+
+</body>
+</html>
+

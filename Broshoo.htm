@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+<center>
+<hr>
+</hr>
+<h1>system32</h1>
+<hr>
+</hr>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP9oVhMcwPHjc2R_A-16qq3qYi0XmMzBMToK5KV-Qj0KysH3XE" style="width:683px;height:425px;">
+<hr>
+</hr>
+<input type="text" id="field"><input type="button" value="hack.me" onclick="post()">
+<br><br>
+<div id="content"></div>
+<br><br>
+<p style="color:white;">Same code has the jesus xss but with the title name s32 (2poc) </p>
+<center>
+
+</body>
+<script>
+    function post() {
+        var word = document.getElementById('field').value;
+        document.getElementById('content').innerHTML = word;
+        document.getElementById('field').value = "";
+    }
+</script>
+</html>

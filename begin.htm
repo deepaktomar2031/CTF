@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<body>
+<center>
+<hr>
+</hr>
+<h1>Hack MyLogin</h1>
+<hr>
+</hr>
+<img src="https://lh4.ggpht.com/orpV8u7Xf0SzS8PxBXv7fcb0ZPGHLmAgNTHw6ThxyOxNu-DifgVLDQxdpfmYZssJB_k=h900" style="width:683px;height:425px;">
+<hr>
+</hr>
+<article>
+<label>User Name :</label>
+<input type="text" name="username" id="username"/>
+<label>Password :</label>
+<input type="password" name="password" id="password"/>
+<input type="button" value="Login" onclick="login()"/>
+</article>
+<hr>
+</hr>
+</center>
+
+</body>
+<script>    s
+    function login() {
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        if (username == "lucid" && password == "54321lucid12345") {
+
+            alert("Login Successfully");
+            window.location = "thetruth.htm";
+
+        }
+        else {
+            alert("Login Failed!");
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>JS Hack CAPTCHA Test</title>
+    </head>
+    <body>
+        <h1 align="center">JavaScript Hack CAPTCHA Test</h1>
+        <div>
+            <h5 align="center">
+                Submit the form without solving the CAPTCHA
+            </h5>
+        </div>
+        <form method="GET" action="submit.htm" onsubmit="return submitForm()">
+            <table align="center" border="0" cellpadding="0" cellspacing="2">
+                <tr>
+                    <td>Your name:</td>
+                    <td>
+                        <input value=""type="text" name="username" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Your email:</td>
+                    <td>
+                        <input value=""type="text" name="email" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Enter the text below:
+                        <br />
+                        <img data-sz="f" name="VEYTK2JFAK8khM:" alt="captcha" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALgAAABECAMAAAAFvQ+XAAAAgVBMVEX///8AAACMjIzm5ua8vLxQUFDo6Oju7u75+fnz8/Pf39/7+/uJiYmQkJCioqL39/cSEhJISEggICDPz89iYmLAwMAtLS3R0dGvr6/GxsaoqKg6OjpXV1dra2vZ2dl/f3+WlpZ0dHQoKCg1NTVCQkJUVFReXl4ZGRkMDAx6enoqKipGNXhXAAAElUlEQVRoge2a63ayOhCGE0DOoIgWTygI1rb3f4E7CWfIUVtd39q8f5QyA4+TzGQCBWDWrFn/V1l7o9E2fjeMghwNdlrv3o0jr/gO+3o3jryMATfMgKUPZVrvRqTKWAzBP4EPRyr1d0NSROJ93JLM3ODvhb5bjcnTd1NOdS4wWFQdOFd8cDCLMXj0xB1CWOx/BXWogID59ZGHY/4NPsfg2eM32KLhW5lCs2WMx9zyepWZ70BK4cZpDt1M8w9Lw9cGeoK7ioww5N7hXk3JXmnmLykZNnGfABOJkAiih9bAawW7dbrRTsEhYHvYJ2Tyl0VDk4qMWcN+mMm6AS9co53DY1l5DI5K4OMaX1d6mw8uvIHdlODU3rUhD+2SVRV0eDPN08lhnJ7KOI7ztlLAvIQcOLC2dUpaoPpEUyb1LnfGRNchPAH9LIN8zlCW+pNC2Yg5i3058Okv2cCfxIURfZYF0qXOYCJXYvZmh3UfPGWRUJTDEFypETE+8C3vwpQHy5xPjZIqYbjaYJ934CEyXcuCW6fS2dHSMyHcsBStDsk+GkCegrq8B+QCeApprELthRdgb1pwXMKgdMu2hZb1gcI+Vt0VTk+MzD6GwS27sb7hY66zuYKlZ6YNOOnnxMtorfgrAjvKDWpwkXtbVzcuKX29gC2E/ij7YdGRih0GCtFEyRjghXDg6kkc+dNaLQfem6aK4OC22jvF5K8EvBRu1Qj3kTqJJcE1BYdOqP6iJFpY07Svp0p24AedcNNr2F+Cu3VFuEwHut2ylUveFbDFgn5KnJwPgOOSGXpdrzWN2bmrcteDOrj+KZHcyuBeSC66bHfwtAUrCb4b8hW7Y2aBn6AseNecCsG9sALWQI12ovcjbVMGDWVwKA3+s8mG4G4enXyPZm/W293CjVEZvicmq3mzzboTZq/7U3A3XywWN3lwPOCoHTa9apScqnGldqxNXw4vqK2870yL3S+jlgAbsif56CZLs2uY5cGJQi8pBY7LS33yGtv4Yx1wCscWcslJCvhNydQvcCQuuLnuWX5dgHsROJK+HD8nyQEJ0Bdn97av5hVrJarusqk6q+AGx+KCg+HwoJE7NN95G2gH/V7LquxYuzc0z3NisGZcaULaKivF4FhxL+zhElyuMk+YDgUIhZH55v20nIJc31d2IYyDrg+ODFSGM+6SV2lnn4/CISVwGv3cMtPWA+qj39xXtWeSWGoHCoXgJgcctFlQc3dTShlc1SES2et8cGD2HkUo9eMjqTk4YPMs+K9wqDrEqRv/i+Dukezy/w6ctb9nOsiZ4uchRyfhrelAmJxcDvrmiOMgZVltFs5Oye7+sLQnwDlLG92Bfbp7b7mr9gpH4FKbSHCunthV67A6eAoV/fjglj95h8OwrJcmaFjrh8DP918F34+oU5f1CCatLUoSctGTIYqSXwXfjsDZjWG7I3U8jWPGlmpS88H1zYC7YL9L6cZm7zz0Kly1jOb85HSNvnh1ts3iB//3QBUc99l/8e5QWQ8uXO/XDP5qzeCv1gz+as3gr9YM/mr9s+DWz2N9/Pt1/owe6eNnzerpP5qrMq/ewCBVAAAAAElFTkSuQmCC" >
+                    </td>
+                    <td>
+                        <input id="captcha" type="text" name="captcha" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                        <input type="submit" value=" Submit! " />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <div>
+            Note that this form doesn't actually submit you will just get an alert,
+            so making it actually submit is not part of the test. You just need to 
+            get the Form Submitted alert without entering a CAPTCHA.
+        </div>
+    </body>
+    <script>
+        function submitForm() {
+            var captcha = document.getElementById('captcha').value;
+            if (captcha == '4359') {
+                return true;
+            } else {
+                alert('CAPTCHA not correct, please try again. \nForm not submitted.');
+            }
+            return false;
+        }
+    </script>
+</html>

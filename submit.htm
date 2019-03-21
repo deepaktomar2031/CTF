@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head>
+        <title>JS Hack CAPTCHA Test</title>
+    </head>
+    <body>
+        <h1 align="center">Form Submitted</h1>
+        <div>
+            <h2 id="results" align="center"></h2>
+        </div>
+        <br>
+        <div align="center">
+            Click <a href="SimpleCAPTCHABypass.htm">here</a> to go back to the form.
+        </div>
+    </body>
+    <script>
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)", "i"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        document.addEventListener("DOMContentLoaded", function (event) {
+            var username = getParameterByName('username');
+            var captcha = getParameterByName('captcha');
+            console.log(captcha);
+            if (captcha == '' || captcha == null) {
+                document.getElementById('results').innerHTML = 'You won, congratulations ' + username + '!';
+            } else {
+                document.getElementById('results').innerHTML = 'You didn\'t win. Sorry ' + username + ' try again.';
+            }
+        });
+    </script>
+</html>

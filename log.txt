@@ -1,0 +1,2 @@
+<input type="button" value="CrackXSS" onclick="window.location.href='forbidden_txt.htm'">
+you can do the button with style or simply copy paste

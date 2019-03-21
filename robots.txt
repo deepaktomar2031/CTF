@@ -1,0 +1,46 @@
+User-agent: Mediapartners-Google*
+Disallow:
+
+[null] ; = +
+[null] * = .append([arg])
+[null] & = AND
+[null] : = OR
+[null] ;return*&:: = join(arg);
+[null] ;bio*&:: = return(arg);
+
+User-agent: *
+Disallow: ;return*&:: /success.html 
+Disallow: ;return*&:: /loginfailed.html 
+Allow: / NOT define random('1''=') SQL;
+# User-agent2: "M"+*
+# User-agent3: "M"+*
+Allow: / AND IP: 127.0.0.1 OR 1.1.1.1
+# User-agent [OS]: "Win" + *
+# User-agent [TERMINAL]: "cmd" *system
+Disallow: ;return*&:: /login.txt
+Disallow: ;bio*&:: /database.txt
+Disallow: /ads/
+Disallow: /adx/bin/
+Disallow: /archives/
+Disallow: /auth/
+Disallow: /cnet/
+Disallow: /college/
+Disallow: /external/
+Disallow: /financialtimes/
+Disallow: /idg/
+Disallow: /indexes/
+Disallow: /library/
+Disallow: /nytimes-partners/
+Disallow: /packages/flash/multimedia/TEMPLATES/
+Disallow: /pages/college/
+Disallow: /paidcontent/
+Disallow: /partners/
+Disallow: /register
+Disallow: /thestreet/
+Disallow: /svc
+Disallow: /video/embedded/*
+Disallow: /web-services/
+Disallow: /gst/travel/travsearch*
+
+User-agent: media.group.discord.*
+Allow: /

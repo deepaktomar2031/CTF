@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>JavaScript Analysis and DOM-based XSS Challenge</title>
+
+        
+        </head><body>
+            <center><b><p id="hello"> DOM-based XSS Challenge with JS Analysis<br> Try to find a valid XSS vector, after reviewing the code :)</p></b>
+
+                <br>
+                <br>
+                <br>
+                <p id="one">One does not simply finds a DOM based XSS without js analysis</p>
+                <img src="http://xss.prakharprasad.com/considered.png" height="300px" width="350px">
+                <br>
+                <br>
+                <br>
+                <p id="one">One does not simply finds a DOM based XSS without js analysis</p>
+            </center>
+            <script type="text/javascript">
+                function ascii(data) {
+                    return parseInt(data.charCodeAt(0));
+                }
+
+                function chr(data) {
+                    return String.fromCharCode(data);
+                }
+
+                /*
+
+                function hmm()
+                {
+
+                var append = '';
+                for(i=0; i<=5;i++)
+                {
+                append += chr(Math.floor((Math.random()*58)+65));
+                }
+                return append;
+                }
+                function simple_encode(data)
+                {
+                hmm();
+                var encoded = '';
+                for(i=0; i<data.length;i++)
+                {
+    		
+                encoded +=(chr(ascii(data[i]) + 1));
+    		
+                }
+                encoded += hmm();
+                return encoded;
+                } 
+
+                For Hints Ask: @prakharprasad, @rafaybaloch
+                Submit your vector: http://goo.gl/VlzWR
+
+                Special Thanks to Rafay Baloch, Maxone, Dhaval and Amol Naik
+
+                */
+
+                function simple_decode(data) {
+                    var decoded = '';
+                    data = data.substr(0, data.length - 6);
+                    for (i = 0; i < data.length; i++) {
+                        decoded += (chr(ascii(data[i]) - 1))
+                    }
+                    return decoded;
+                }
+
+
+                function validate(data) {
+                    data = simple_decode(data);
+                    cond = (data.indexOf(simple_decode('bmfsu)itSvMl')) > -1 || data.indexOf(simple_decode('qspnqu)eUbfjz')) > -1 || data.indexOf(simple_decode('dpogjsn)ptBfCe')) > -1);
+                    return (cond ? null : data);
+                }
+
+                function getData(hash) {
+                    return unescape(hash.substr(1, hash.length));
+                }
+
+                if (location.hash) {
+
+                    taint = validate(getData(location.hash));
+                    cond = getData(location.hash);
+
+                    if (cond.substr(cond.length - 1, 1) == '!') {
+
+                        document.getElementById('hello').innerHTML = taint;
+
+                    }
+                } else {
+                    document.getElementById('hello').innerHTML += '<br> Try to find a valid XSS vector, after reviewing the code :)'
+                }
+            </script>
+        
+
+</body></html>

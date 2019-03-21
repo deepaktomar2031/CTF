@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Easiest XSS</title>
+</head>
+
+  <body style="text-align:center;font-family:arial, verdana;">
+	<h1>Easiest XSS</h1>
+	<h3>XSS problem for noobs</h3>
+  	<input type="text" id="field"><input type="button" value="Submit" onclick="post()">
+	<br><br>
+	<div id="content"></div>
+	<br><br>
+	<b>Hint:</b> <code>&lt;script&gt;</code> may not work.
+	<script>
+	    function post() {
+	        var word = document.getElementById('field').value;
+	        document.getElementById('content').innerHTML = word;
+	        document.getElementById('field').value = "";
+	    }
+	</script>
+  </body>
+
+</html>

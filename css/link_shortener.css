@@ -1,0 +1,14 @@
+body {
+    background-color: lightblue;
+}
+
+#link_shortener .results { 
+  width: 100%;
+  height: 90%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.long_link { 
+  width: 20%;
+}
